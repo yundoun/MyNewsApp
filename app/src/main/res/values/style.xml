@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabPaddingStart">0dp</item>
+        <item name="tabPaddingEnd">5dp</item>
+        <item name="tabIndicatorColor">@color/smooth_green</item>
+        <item name="tabIndicatorFullWidth">false</item>
+        <!--인디케이터 너비를 전체로 맞추는 것이 아니라 탭 내의 텍스트에 맞추기-->
+        <item name="tabRippleColor">@android:color/transparent</item>
+    </style>
+</resources>

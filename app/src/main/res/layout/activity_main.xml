@@ -5,6 +5,7 @@
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -110,6 +111,7 @@
         android:layout_height="60dp"
         android:padding="10dp"
         android:visibility="gone"
+        android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/view"
         tools:ignore="UnknownId">
 
@@ -126,8 +128,8 @@
             android:id="@+id/et_search"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/search_icon"
             app:layout_constraintStart_toEndOf="@+id/btn_input_delete"
             app:layout_constraintTop_toTopOf="parent" />
@@ -147,8 +149,55 @@
         android:id="@+id/view_line"
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:background="#009688"
+        android:background="@color/green"
         app:layout_constraintTop_toBottomOf="@+id/titlebar_layout"
         tools:layout_editor_absoluteX="16dp" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_gray"
+        app:layout_constraintTop_toBottomOf="@+id/view_line"
+        tools:layout_editor_absoluteX="0dp"
+        style="@style/CustomTabLayout">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="종합" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="정치" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="경제" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사회" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="문화" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="세계" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IT/과학" />
+
+
+    </com.google.android.material.tabs.TabLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
