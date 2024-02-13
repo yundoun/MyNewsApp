@@ -9,13 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class Fragment7 extends Fragment {
+public class Fragment_05_Culture extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View seventhView = inflater.inflate(R.layout.fragment7, container, false);
+        View fifthView = inflater.inflate(R.layout.fragment_05_culture, container, false);
 
-        return seventhView;
+        return fifthView;
     }
 }

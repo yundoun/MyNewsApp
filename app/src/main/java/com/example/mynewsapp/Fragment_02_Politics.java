@@ -10,13 +10,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 
-public class Fragment3 extends Fragment {
+public class Fragment_02_Politics extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View thirdView = inflater.inflate(R.layout.fragment3, container, false);
+        View secondView = inflater.inflate(R.layout.fragment_02_politics, container, false);
 
-        return thirdView;
+        return secondView;
     }
 }

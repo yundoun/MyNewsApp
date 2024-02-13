@@ -13,19 +13,19 @@ public class ScreenSlidePagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-                return new Fragment1();
+                return new Fragment_01_General();
             case 1:
-                return new Fragment2();
+                return new Fragment_02_Politics();
             case 2:
-                return new Fragment3();
+                return new Fragment_03_Economics();
             case 3:
-                return new Fragment4();
+                return new Fragment_04_Society();
             case 4:
-                return new Fragment5();
+                return new Fragment_05_Culture();
             case 5:
-                return new Fragment6();
+                return new Fragment_06_World();
             case 6:
-                return new Fragment7();
+                return new Fragment_07_TechScience();
             default:
                 return null; // 이 경우가 발생하지 않도록 주의
         }

@@ -9,14 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-// Fragment1.java
-public class Fragment1 extends Fragment {
+public class Fragment_07_TechScience extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View firstView = inflater.inflate(R.layout.fragment1, container, false);
+        View seventhView = inflater.inflate(R.layout.fragment_07_tech, container, false);
 
-        return firstView;
+        return seventhView;
     }
 }
