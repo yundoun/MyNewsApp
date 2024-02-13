@@ -1,51 +1,50 @@
 package com.example.mynewsapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class MainActivity extends AppCompatActivity {
 
     private ConstraintLayout searchLayout, titleBarLayout;
     private ImageView searchIcon;
     private ImageView backButton;
+    private ViewPager2 viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initViews();
+        configTab();
+    }
+
+    private void initViews() {
         searchLayout = findViewById(R.id.search_layout);
         titleBarLayout = findViewById(R.id.titlebar_layout);
         searchIcon = findViewById(R.id.iv_search);
         backButton = findViewById(R.id.btn_input_delete);
+        viewPager = findViewById(R.id.view_pager);
 
-        // 검색 아이콘 클릭 이벤트 처리
-        searchIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // titlebar_layout을 숨기고 search_layout을 보이게 함
-                titleBarLayout.setVisibility(View.GONE);
-                searchLayout.setVisibility(View.VISIBLE);
-                updateViewLineConstraint(R.id.search_layout); // view_line을 검색창 아래에 두기
-            }
-        });
-
-        // 뒤로 가기 버튼 클릭 이벤트 처리
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 검색 레이아웃을 숨기고 titlebar_layout을 다시 보이게 함
-                searchLayout.setVisibility(View.GONE);
-                titleBarLayout.setVisibility(View.VISIBLE);
-                updateViewLineConstraint(R.id.titlebar_layout); // view_line 타이틀바 아래에 위치
-            }
-        });
+        searchIcon.setOnClickListener(v -> toggleSearchView(true));
+        backButton.setOnClickListener(v -> toggleSearchView(false));
     }
+
+    private void toggleSearchView(boolean showSearch) {
+        titleBarLayout.setVisibility(showSearch ? View.GONE : View.VISIBLE);
+        searchLayout.setVisibility(showSearch ? View.VISIBLE : View.GONE);
+        updateViewLineConstraint(showSearch ? R.id.search_layout : R.id.titlebar_layout);
+    }
+
     private void updateViewLineConstraint(int anchorId) {
         ConstraintLayout rootLayout = findViewById(R.id.main_layout);
         View viewLine = findViewById(R.id.view_line);
@@ -53,6 +52,40 @@ public class MainActivity extends AppCompatActivity {
         constraintSet.clone(rootLayout);
         constraintSet.connect(R.id.view_line, ConstraintSet.TOP, anchorId, ConstraintSet.BOTTOM, 0);
         constraintSet.applyTo(rootLayout);
+    }
+
+    private void configTab() {
+        viewPager.setAdapter(new ScreenSlidePagerAdapter(this));
+
+        TabLayout tabs = findViewById(R.id.tabMain);
+        new TabLayoutMediator(tabs, viewPager, (tab, position) -> {
+            switch (position) {
+                case 0:
+                    tab.setText("종합");
+                    break;
+                case 1:
+                    tab.setText("정치");
+                    break;
+                case 2:
+                    tab.setText("경제");
+                    break;
+                case 3:
+                    tab.setText("사회");
+                    break;
+                case 4:
+                    tab.setText("문화");
+                    break;
+                case 5:
+                    tab.setText("세계");
+                    break;
+                case 6:
+                    tab.setText("IT/과학");
+                    break;
+                default:
+                    tab.setText("탭 " + (position + 1));
+                    break;
+            }
+        }).attach();
     }
 
 }

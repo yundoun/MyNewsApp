@@ -109,9 +109,9 @@
         android:id="@+id/search_layout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:background="@color/white"
         android:padding="10dp"
         android:visibility="gone"
-        android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/view"
         tools:ignore="UnknownId">
 
@@ -155,49 +155,49 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabMain"
+        style="@style/CustomTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/light_gray"
         app:layout_constraintTop_toBottomOf="@+id/view_line"
-        tools:layout_editor_absoluteX="0dp"
-        style="@style/CustomTabLayout">
+        tools:layout_editor_absoluteX="0dp">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="종합" />
+            android:layout_height="wrap_content" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="정치" />
+            android:layout_height="wrap_content" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="경제" />
+            android:layout_height="wrap_content" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="사회" />
+            android:layout_height="wrap_content" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="문화" />
+            android:layout_height="wrap_content" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="세계" />
+            android:layout_height="wrap_content" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="IT/과학" />
+            android:layout_height="wrap_content" />
 
 
     </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabMain" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
