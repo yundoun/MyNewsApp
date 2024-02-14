@@ -21,7 +21,7 @@ public class Fragment_01_General extends Fragment {
 
     private RecyclerView recyclerView;
     private NewsRvAdapter adapter;
-    private ArrayList<NewsItem> newsItems = new ArrayList<>();
+    private ArrayList<Api_NewsItem> newsItems = new ArrayList<>();
 
     @Nullable
     @Override
@@ -33,10 +33,10 @@ public class Fragment_01_General extends Fragment {
 
         //NewsApi 데이터 로드 메소드 호출
 
-        NewsApiManager newsApiManager = new NewsApiManager();
-        newsApiManager.loadNewsData(new NewsApiManager.NewsDataListener() {
+        Api_Manager newsApiManager = new Api_Manager();
+        newsApiManager.loadNewsData(new Api_Manager.NewsDataListener() {
             @Override
-            public void onDataLoaded(List<NewsItem> newsItems) {
+            public void onDataLoaded(List<Api_NewsItem> newsItems) {
                 // 데이터 로드 성공 시 어댑터에 데이터 설정
                 adapter = new NewsRvAdapter(getContext(), new ArrayList<>(newsItems));
                 recyclerView.setAdapter(adapter);

@@ -6,14 +6,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NewsApiManager {
+public class Api_Manager {
     public void loadNewsData(NewsDataListener listener){
-        NewsApi api = RetrofitClient.getClient().create(NewsApi.class);
-        api.getNews().enqueue(new Callback<NewsResponse>() {
+        Api_News api = Api_Retrofit_Client.getClient().create(Api_News.class);
+        api.getNews().enqueue(new Callback<Api_Response>() {
             @Override
-            public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
+            public void onResponse(Call<Api_Response> call, Response<Api_Response> response) {
                 if (response.isSuccessful()){
-                    List<NewsItem> items = response.body().getItemList();
+                    List<Api_NewsItem> items = response.body().getItemList();
                     listener.onDataLoaded(items);
                 }else{
                     listener.onError(response.errorBody().toString());
@@ -21,14 +21,14 @@ public class NewsApiManager {
             }
 
             @Override
-            public void onFailure(Call<NewsResponse> call, Throwable t) { // 여기도 NewsResponse로 수정
+            public void onFailure(Call<Api_Response> call, Throwable t) { // 여기도 NewsResponse로 수정
                 listener.onError(t.getMessage());
             }
         });
     }
 
     public interface NewsDataListener {
-        void onDataLoaded(List<NewsItem> newsItems);
+        void onDataLoaded(List<Api_NewsItem> newsItems);
         void onError(String errorMessage);
     }
 }

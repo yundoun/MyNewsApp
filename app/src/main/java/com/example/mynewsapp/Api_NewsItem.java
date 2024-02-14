@@ -1,11 +1,11 @@
 package com.example.mynewsapp;
 
-public class NewsItem {
+public class Api_NewsItem {
     private String title;
     private String company;
     private String date;
     private String url;
-    public NewsItem(String title, String company, String date, String url) {
+    public Api_NewsItem(String title, String company, String date, String url) {
         this.title = title;
         this.company = company;
         this.date = date;

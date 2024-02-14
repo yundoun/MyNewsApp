@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class NewsRvAdapter extends RecyclerView.Adapter<NewsRvAdapter.MyViewHolder> {
 
     private Context context;
-    ArrayList<NewsItem> newsItems;
+    ArrayList<Api_NewsItem> newsItems;
 
-    public NewsRvAdapter(Context context, ArrayList<NewsItem> newsItems) {
+    public NewsRvAdapter(Context context, ArrayList<Api_NewsItem> newsItems) {
         this.context = context;
         this.newsItems = newsItems;
     }
@@ -33,7 +33,7 @@ public class NewsRvAdapter extends RecyclerView.Adapter<NewsRvAdapter.MyViewHold
     public void onBindViewHolder(@NonNull NewsRvAdapter.MyViewHolder holder, int position) {
        // 특정 위치에 있는 데이터를 Recycler View의 각 항목에 표시하는데 사용됨
         // 우리가 할당할 곳, 화면에 돌아올 때 각 행에 값을 부여 , 데이터 바인딩
-        NewsItem newsItem = newsItems.get(position); // 수정된 부분
+        Api_NewsItem newsItem = newsItems.get(position); // 수정된 부분
         holder.tv_title.setText(newsItem.getTitle());
         holder.tv_company.setText(newsItem.getCompany());
         holder.tv_date.setText(newsItem.getDate());
