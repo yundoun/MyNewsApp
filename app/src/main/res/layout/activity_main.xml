@@ -89,6 +89,9 @@
             android:layout_weight="1"
             android:background="@drawable/login_btn"
             android:text="로그인"
+            android:drawableEnd="@drawable/login_btn_image"
+            android:drawablePadding="-4dp"
+            android:paddingEnd="10dp"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -159,7 +162,7 @@
         style="@style/CustomTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/light_gray"
+        android:background="@color/tab_layout"
         app:layout_constraintTop_toBottomOf="@+id/view_line"
         tools:layout_editor_absoluteX="0dp">
 
