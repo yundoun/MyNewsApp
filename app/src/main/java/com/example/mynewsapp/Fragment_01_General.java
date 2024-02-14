@@ -21,7 +21,6 @@ public class Fragment_01_General extends Fragment {
 
     private RecyclerView recyclerView;
     private NewsRvAdapter adapter;
-    private ArrayList<Api_NewsItem> newsItems = new ArrayList<>();
 
     @Nullable
     @Override
@@ -44,7 +43,7 @@ public class Fragment_01_General extends Fragment {
 
             @Override
             public void onError(String errorMessage) {
-// 데이터 로드 실패 처리
+                // 데이터 로드 실패 처리
                 Toast.makeText(getContext(), "데이터 로드 실패: " + errorMessage, Toast.LENGTH_SHORT).show();
                 Log.d("err", errorMessage);
             }
