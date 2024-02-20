@@ -18,13 +18,14 @@
 
         <TextView
             android:id="@+id/tv_ranking"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:text="ranking"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             android:textColor="#22B272"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,7 +33,7 @@
             android:id="@+id/tvRank_company"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="2dp"
             android:text="TextView"
             android:textColor="@color/light_gray"
@@ -44,12 +45,12 @@
             android:id="@+id/tvRank_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="4dp"
             android:text="TextView"
             android:textColor="@color/black"
             android:textSize="14dp"
-            android:textStyle="normal|bold"
+            android:textStyle="normal"
             app:layout_constraintStart_toEndOf="@+id/tv_ranking"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,9 +58,12 @@
             android:id="@+id/iv_rank"
             android:layout_width="60dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
             android:src="@drawable/ic_news_logo"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tvRank_title"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

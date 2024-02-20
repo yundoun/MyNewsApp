@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,15 +30,15 @@ public class Fragment_01_General extends Fragment {
         LinearLayout buttonsLayout = rootView.findViewById(buttonsLayoutId);
         buttonsLayout.removeAllViews(); // 기존에 추가된 버튼이 있다면 제거
 
-        int buttonSize = dpToPx(38);
+        int buttonSize = dpToPx(30);
 
         // 버튼 기본 마진 설정
         int margin = dpToPx(1);
-        int largeMargin = dpToPx(50);
+        int largeMargin = dpToPx(70);
 
         for (int i = 1; i <= 6; i++) {
             Button pageButton = new Button(getContext());
-
+            pageButton.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.page_btn)); // 배경 설정
             LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(buttonSize, buttonSize);
 
             // 첫 번째 버튼과 마지막 버튼의 경우 추가 마진 설정
@@ -52,8 +53,9 @@ public class Fragment_01_General extends Fragment {
                 buttonParams.setMargins(margin, 0, margin, 0);
             }
             pageButton.setLayoutParams(buttonParams);
+            pageButton.setPadding(0, 0, 0, 0); // 상, 우, 하, 좌 패딩을 0으로 설정
             pageButton.setText(String.valueOf(i));
-            pageButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10); // 텍스트 사이즈를 12sp로 설정
+            pageButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14); // 텍스트 사이즈를 12sp로 설정
             final int pageNumber = i;
             pageButton.setOnClickListener(v -> loadPageData(pageNumber));
             buttonsLayout.addView(pageButton);
@@ -61,21 +63,22 @@ public class Fragment_01_General extends Fragment {
 
         // "다음" 버튼 추가 및 마진 설정
         Button nextButton = new Button(getContext());
-
-// 가로 100dp, 세로 50dp로 설정 (dp 값을 픽셀로 변환)
-        int widthPx = dpToPx(50); // 가로 넓이를 픽셀로 변환
-        int heightPx = dpToPx(38); // 세로 넓이를 픽셀로 변환
+        nextButton.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.page_btn)); // 배경 설정
+        // 가로 100dp, 세로 50dp로 설정 (dp 값을 픽셀로 변환)
+        int widthPx = dpToPx(40); // 가로 넓이를 픽셀로 변환
+        int heightPx = dpToPx(32); // 세로 넓이를 픽셀로 변환
 
         LinearLayout.LayoutParams nextButtonParams = new LinearLayout.LayoutParams(
                 widthPx, // 가로 넓이를 픽셀 단위로 지정
                 heightPx); // 세로 넓이를 픽셀 단위로 지정
 
-// 첫 번째 버튼의 왼쪽 마진과 마지막 버튼의 오른쪽 마진 조정
+        // 첫 번째 버튼의 왼쪽 마진과 마지막 버튼의 오른쪽 마진 조정
         nextButtonParams.setMargins(margin, 0, 50, 0);
         nextButton.setLayoutParams(nextButtonParams);
+        nextButton.setPadding(0, 0, 0, 0); // 상, 우, 하, 좌 패딩을 0으로 설정
 
         nextButton.setText("다음");
-        nextButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10); // 텍스트 사이즈 설정
+        nextButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12); // 텍스트 사이즈 설정
         nextButton.setOnClickListener(v -> loadNextPageGroup());
         buttonsLayout.addView(nextButton);
     }
