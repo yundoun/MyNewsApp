@@ -26,63 +26,48 @@ public class Fragment_01_General extends Fragment {
     private NewsRvAdapter_NewsFlash adapter;
     private NewsRvAdapter_Rank adapterRank;
 
+    // 버튼 추가 메소드에 대한 중복 제거 및 최적화
     private void addPageButtons(View rootView, int buttonsLayoutId) {
         LinearLayout buttonsLayout = rootView.findViewById(buttonsLayoutId);
-        buttonsLayout.removeAllViews(); // 기존에 추가된 버튼이 있다면 제거
+        buttonsLayout.removeAllViews(); // 기존에 추가된 버튼 제거
 
-        int buttonSize = dpToPx(30);
-
-        // 버튼 기본 마진 설정
+        int widthPx = dpToPx(35); // 가로 넓이를 픽셀로 변환
+        int heightPx = dpToPx(25); // 세로 넓이를 픽셀로 변환
         int margin = dpToPx(1);
-        int largeMargin = dpToPx(70);
 
         for (int i = 1; i <= 6; i++) {
-            Button pageButton = new Button(getContext());
-            pageButton.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.page_btn)); // 배경 설정
-            LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(buttonSize, buttonSize);
-
-            // 첫 번째 버튼과 마지막 버튼의 경우 추가 마진 설정
-            if (i == 1) {
-                // 첫 번째 버튼 마진 설정
-                buttonParams.setMargins(largeMargin, 0, margin, 0);
-            } else if (i == 6) {
-                // 마지막 번호 버튼의 경우, 다음 버튼 전에 마진 설정
-                buttonParams.setMargins(margin, 0, margin, 0);
-            } else {
-                // 중간 버튼들의 마진 설정
-                buttonParams.setMargins(margin, 0, margin, 0);
-            }
-            pageButton.setLayoutParams(buttonParams);
-            pageButton.setPadding(0, 0, 0, 0); // 상, 우, 하, 좌 패딩을 0으로 설정
-            pageButton.setText(String.valueOf(i));
-            pageButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14); // 텍스트 사이즈를 12sp로 설정
-            final int pageNumber = i;
-            pageButton.setOnClickListener(v -> loadPageData(pageNumber));
+            Button pageButton = createButton(String.valueOf(i), widthPx, heightPx, margin);
             buttonsLayout.addView(pageButton);
         }
 
-        // "다음" 버튼 추가 및 마진 설정
-        Button nextButton = new Button(getContext());
-        nextButton.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.page_btn)); // 배경 설정
-        // 가로 100dp, 세로 50dp로 설정 (dp 값을 픽셀로 변환)
-        int widthPx = dpToPx(40); // 가로 넓이를 픽셀로 변환
-        int heightPx = dpToPx(32); // 세로 넓이를 픽셀로 변환
-
-        LinearLayout.LayoutParams nextButtonParams = new LinearLayout.LayoutParams(
-                widthPx, // 가로 넓이를 픽셀 단위로 지정
-                heightPx); // 세로 넓이를 픽셀 단위로 지정
-
-        // 첫 번째 버튼의 왼쪽 마진과 마지막 버튼의 오른쪽 마진 조정
-        nextButtonParams.setMargins(margin, 0, 50, 0);
-        nextButton.setLayoutParams(nextButtonParams);
-        nextButton.setPadding(0, 0, 0, 0); // 상, 우, 하, 좌 패딩을 0으로 설정
-
-        nextButton.setText("다음");
-        nextButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12); // 텍스트 사이즈 설정
-        nextButton.setOnClickListener(v -> loadNextPageGroup());
+        Button nextButton = createButton("다음", widthPx, heightPx, margin);
         buttonsLayout.addView(nextButton);
     }
 
+
+    // 버튼 생성 및 설정을 위한 메소드
+    private Button createButton(String text, int width, int height, int margin) {
+        Button button = new Button(getContext());
+        button.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.page_btn)); // 배경 설정
+        button.setTextColor(ContextCompat.getColorStateList(getContext(), R.color.page_btn_selector)); // 텍스트 색상 selector 적용
+
+        // 모든 버튼에 대해 동일한 마진 설정 적용
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width, height);
+        params.setMargins(margin, 0, margin, 0); // 시작과 끝 마진 동일하게 설정
+        button.setLayoutParams(params);
+        button.setPadding(0, 0, 0, 0);
+        button.setText(text);
+        button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12); // 텍스트 사이즈 설정
+        button.setOnClickListener(v -> {
+            if ("다음".equals(text)) {
+                loadNextPageGroup();
+            } else {
+                int pageNumber = Integer.parseInt(text);
+                loadPageData(pageNumber);
+            }
+        });
+        return button;
+    }
 
     private void loadPageData(int page) {
         // 페이지 번호에 따른 데이터 로딩 로직 구현
