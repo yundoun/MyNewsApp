@@ -21,29 +21,62 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fragment_01_General extends Fragment {
-
+    private int currentPageNumber = 1; // 현재 선택된 페이지 번호를 추적하는 변수
+    private List<Button> pageButtonsFirst = new ArrayList<>(); // 페이지 버튼 리스트
+    private List<Button> pageButtonsSecond = new ArrayList<>(); // 페이지 버튼 리스트
     private RecyclerView recyclerView, recyclerView2;
     private NewsRvAdapter_NewsFlash adapter;
     private NewsRvAdapter_Rank adapterRank;
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        addPageButtons(view, R.id.page_btn_first, pageButtonsFirst); // 버튼을 추가하는 메소드 호출
+        addPageButtons(view, R.id.page_btn_second, pageButtonsSecond);
+    }
+
     // 버튼 추가 메소드에 대한 중복 제거 및 최적화
-    private void addPageButtons(View rootView, int buttonsLayoutId) {
+    private void addPageButtons(View rootView, int buttonsLayoutId, List<Button> pageButtons) {
         LinearLayout buttonsLayout = rootView.findViewById(buttonsLayoutId);
         buttonsLayout.removeAllViews(); // 기존에 추가된 버튼 제거
+        pageButtons.clear(); // 페이지 버튼 리스트 초기화
 
         int widthPx = dpToPx(35); // 가로 넓이를 픽셀로 변환
         int heightPx = dpToPx(25); // 세로 넓이를 픽셀로 변환
         int margin = dpToPx(1);
 
+
         for (int i = 1; i <= 6; i++) {
             Button pageButton = createButton(String.valueOf(i), widthPx, heightPx, margin);
+            final int pageNumber = i;
+            pageButton.setOnClickListener(v -> {
+                updatePageSelection(pageNumber, pageButtons);
+            });
             buttonsLayout.addView(pageButton);
+            pageButtons.add(pageButton);
         }
 
+        updatePageSelection(1,pageButtons); // 초기 선택 상태를 1로 설정
+
         Button nextButton = createButton("다음", widthPx, heightPx, margin);
+        nextButton.setOnClickListener(v -> {
+            if (currentPageNumber < pageButtons.size()) {
+                updatePageSelection(currentPageNumber + 1, pageButtons); // 다음 페이지로 이동
+            } else {
+                updatePageSelection(1, pageButtons); // 마지막 페이지에서 "다음"을 클릭하면 첫 페이지로 이동
+            }
+        });
         buttonsLayout.addView(nextButton);
     }
 
+    private void updatePageSelection(int pageNumber, List<Button> pageButtons) {
+        for (int i = 0; i < pageButtons.size(); i++) {
+            Button btn = pageButtons.get(i);
+            btn.setSelected(i + 1 == pageNumber);
+        }
+        currentPageNumber = pageNumber; // 현재 페이지 번호 업데이트
+        loadPageData(pageNumber); // 페이지 데이터 로딩
+    }
 
     // 버튼 생성 및 설정을 위한 메소드
     private Button createButton(String text, int width, int height, int margin) {
@@ -117,12 +150,6 @@ public class Fragment_01_General extends Fragment {
                 Log.d("err", errorMessage);
             }
         });
-
-        // 첫 번째 리사이클러뷰 아래 페이지 버튼 추가
-        addPageButtons(firstView, R.id.page_btn_first);
-
-        // 두 번째 리사이클러뷰 아래 페이지 버튼 추가를 위한 레이아웃 ID 전달
-        addPageButtons(firstView, R.id.page_btn_second); // 'page_btn_second'는 두 번째 버튼들을 위한 LinearLayout의 ID
 
         return firstView;
     }
