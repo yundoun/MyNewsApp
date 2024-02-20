@@ -5,6 +5,7 @@ public class Api_NewsItem {
     private String company;
     private String date;
     private String url;
+
     public Api_NewsItem(String title, String company, String date, String url) {
         this.title = title;
         this.company = company;
@@ -12,10 +13,7 @@ public class Api_NewsItem {
         this.url = url;
     }
 
-
-    public String getTitle() {
-        return title;
-    }
+    public String getTitle() { return title; }
 
     public String getCompany() {
         return company;
@@ -28,6 +26,4 @@ public class Api_NewsItem {
     public String getUrl() {
         return url;
     }
-
-
 }

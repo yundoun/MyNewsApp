@@ -4,7 +4,8 @@ public class NewsRvDataModel {
     String title;
     String company;
     String date;
-    public NewsRvDataModel(String title, String company, String date) {
+    String url;
+    public NewsRvDataModel(String title, String company, String date, String url) {
         this.title = title;
         this.company = company;
         this.date = date;
@@ -20,4 +21,6 @@ public class NewsRvDataModel {
     public String getDate() {
         return date;
     }
+
+    public String getUrl(){return date;}
 }

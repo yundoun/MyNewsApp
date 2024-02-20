@@ -11,26 +11,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class NewsRvAdapter extends RecyclerView.Adapter<NewsRvAdapter.MyViewHolder> {
+public class NewsRvAdapter_NewsFlash extends RecyclerView.Adapter<NewsRvAdapter_NewsFlash.MyViewHolder> {
 
     private Context context;
     ArrayList<Api_NewsItem> newsItems;
 
-    public NewsRvAdapter(Context context, ArrayList<Api_NewsItem> newsItems) {
+    public NewsRvAdapter_NewsFlash(Context context, ArrayList<Api_NewsItem> newsItems) {
         this.context = context;
         this.newsItems = newsItems;
     }
 
     @NonNull
     @Override
-    public NewsRvAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public NewsRvAdapter_NewsFlash.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // 레이아웃을 확장하고 각 행에 모양을 제공할 곳이며
-        View view = LayoutInflater.from(context).inflate(R.layout.rv_item_01_general, parent, false); // 수정된 부분
+        View view = LayoutInflater.from(context).inflate(R.layout.rv_item, parent, false); // 수정된 부분
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NewsRvAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NewsRvAdapter_NewsFlash.MyViewHolder holder, int position) {
        // 특정 위치에 있는 데이터를 Recycler View의 각 항목에 표시하는데 사용됨
         // 우리가 할당할 곳, 화면에 돌아올 때 각 행에 값을 부여 , 데이터 바인딩
         Api_NewsItem newsItem = newsItems.get(position); // 수정된 부분
