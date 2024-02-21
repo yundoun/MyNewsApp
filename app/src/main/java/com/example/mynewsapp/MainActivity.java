@@ -5,6 +5,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintSet;
+import androidx.fragment.app.Fragment;
 
 import com.example.mynewsapp.databinding.ActivityMainBinding;
 import com.google.android.material.tabs.TabLayoutMediator;
