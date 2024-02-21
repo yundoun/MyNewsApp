@@ -39,21 +39,26 @@ public class Fragment_01_General extends BaseNewsFragment {
         binding.rvNewsflash.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.rvRank.setLayoutManager(new LinearLayoutManager(getContext()));
 
+
+
         // NewsApi 데이터 로드 메소드 호출
         Api_Manager newsApiManager = new Api_Manager();
         newsApiManager.loadNewsData(new Api_Manager.NewsDataListener() {
             @Override
             public void onDataLoaded(List<Api_NewsItem> newsItems) {
                 // 데이터 로드 성공 시 어댑터에 데이터 설정
-                binding.rvNewsflash.setAdapter(new NewsRvAdapter_NewsFlash(getContext(), new ArrayList<>(newsItems)));
+                NewsRvAdapter_NewsFlash newsFlashAdapter = new NewsRvAdapter_NewsFlash(getContext(), new ArrayList<>(newsItems));
+                binding.rvNewsflash.setAdapter(newsFlashAdapter);
+
                 binding.rvRank.setAdapter(new NewsRvAdapter_Rank(getContext(), new ArrayList<>(newsItems)));
             }
 
             @Override
             public void onError(String errorMessage) {
                 // 데이터 로드 실패 처리
-                Toast.makeText(getContext(), "데이터 로드 실패: " + errorMessage, Toast.LENGTH_SHORT).show();
-                Log.d("Fragment_01_General", errorMessage);
+                String message = getContext().getString(R.string.data_load_fail) + errorMessage;
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                Log.d(getContext().getString(R.string.Fragment_01_General), errorMessage);
             }
         });
     }
