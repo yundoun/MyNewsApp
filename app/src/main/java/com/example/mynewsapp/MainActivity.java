@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             if (position < tabTitles.length) {
                 tab.setText(tabTitles[position]);
             } else {
-                tab.setText("탭 " + (position + 1));
+                tab.setText(position + 1);
             }
         }).attach();
     }
