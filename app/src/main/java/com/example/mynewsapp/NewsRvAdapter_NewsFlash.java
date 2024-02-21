@@ -1,6 +1,7 @@
 package com.example.mynewsapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,13 @@ public class NewsRvAdapter_NewsFlash extends RecyclerView.Adapter<NewsRvAdapter_
         holder.binding.tvTitle.setText(newsItem.getTitle());
         holder.binding.tvCompany.setText(newsItem.getCompany());
         holder.binding.tvDate.setText(newsItem.getDate());
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra("key", "value"); // 실제 전달하고 싶은 데이터
+            context.startActivity(intent);
+        });
+
     }
 
     @Override
