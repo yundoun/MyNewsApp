@@ -27,8 +27,8 @@ public abstract class BaseNewsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        addPageButtons(view, R.id.page_btn_first, pageButtonsFirst); // 버튼을 추가하는 메소드 호출
-        addPageButtons(view, R.id.page_btn_second, pageButtonsSecond);
+        addPageButtons(view, R.id.pageBtnFirst, pageButtonsFirst); // 버튼을 추가하는 메소드 호출
+        addPageButtons(view, R.id.pageBtnSecond, pageButtonsSecond);
     }
 
     // 각 버튼 클릭 시, 적절한 동작을 정의합니다 (다음 페이지 그룹 로딩 또는 특정 페이지 데이터 로딩).

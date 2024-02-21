@@ -9,4 +9,19 @@
         <item>세계</item>
         <item>IT/과학</item>
     </string-array>
+    <string name="General_Newsflash">시사 뉴스 속보></string>
+    <string name="General_Rank">시사 뉴스 랭킹></string>
+    <string name="Politics_Newsflash">정치 뉴스 속보></string>
+    <string name="Politics_Rank">정치 뉴스 랭킹></string>
+    <string name="Economics_Newsflash">경제 뉴스 속보></string>
+    <string name="Economics_Rank">경제 뉴스 랭킹></string>
+    <string name="Society_Newsflash">사회 뉴스 속보></string>
+    <string name="Society_Rank">사회 뉴스 랭킹></string>
+    <string name="Culture_Newsflash">문화 뉴스 속보></string>
+    <string name="Culture_Rank">문화 뉴스 랭킹></string>
+    <string name="World_Newsflash">세계 뉴스 속보></string>
+    <string name="World_Rank">세계 뉴스 랭킹></string>
+    <string name="TechScience_Newsflash">IT/과학 뉴스 속보></string>
+    <string name="TechScience_Rank">IT/과학 뉴스 랭킹></string>
+
 </resources>

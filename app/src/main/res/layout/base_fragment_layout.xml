@@ -10,13 +10,12 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_newsflash"
+            android:id="@+id/tvNewsflash"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:gravity="bottom"
             android:padding="0dp"
             android:paddingStart="20dp"
-            android:text="시사 뉴스 속보 >"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,12 +31,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_newsflash"
+            app:layout_constraintTop_toBottomOf="@+id/tvNewsflash"
             app:layout_constraintVertical_bias="0.0" />
 
         <!-- 첫 번째 RecyclerView의 페이지 버튼 -->
         <LinearLayout
-            android:id="@+id/page_btn_first"
+            android:id="@+id/pageBtnFirst"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -54,13 +53,12 @@
             android:background="@color/background" />
 
         <TextView
-            android:id="@+id/tv_rank"
+            android:id="@+id/tvRank"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:gravity="bottom"
             android:padding="0dp"
             android:paddingStart="20dp"
-            android:text="시사 뉴스 랭킹 >"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -70,7 +68,7 @@
             android:layout_height="wrap_content" />
 
         <LinearLayout
-            android:id="@+id/page_btn_second"
+            android:id="@+id/pageBtnSecond"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -78,7 +76,7 @@
             android:orientation="horizontal"></LinearLayout>
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/appInfo"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:background="@color/background"

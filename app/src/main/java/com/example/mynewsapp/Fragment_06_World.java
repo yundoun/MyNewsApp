@@ -11,12 +11,14 @@ import androidx.fragment.app.Fragment;
 
 public class Fragment_06_World extends Fragment {
 
+    private com.example.mynewsapp.databinding.BaseFragmentLayoutBinding binding;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View sixthView = inflater.inflate(R.layout.fragment_06_world, container, false);
-
-        return sixthView;
+        binding = com.example.mynewsapp.databinding.BaseFragmentLayoutBinding.inflate(inflater, container, false);
+        binding.tvNewsflash.setText(R.string.World_Newsflash);
+        binding.tvRank.setText(R.string.World_Rank);
+        return binding.getRoot();
     }
 }
 

@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        binding.searchIcon.setOnClickListener(v -> toggleSearchView(true));
+        binding.ivSearch.setOnClickListener(v -> toggleSearchView(true));
         binding.btnDelete.setOnClickListener(v -> toggleSearchView(false));
     }
 

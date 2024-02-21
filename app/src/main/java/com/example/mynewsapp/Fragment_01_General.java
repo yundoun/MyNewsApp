@@ -2,23 +2,16 @@ package com.example.mynewsapp;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mynewsapp.databinding.ActivityMainBinding;
-import com.example.mynewsapp.databinding.Fragment01GeneralBinding;
+import com.example.mynewsapp.databinding.BaseFragmentLayoutBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,14 +21,15 @@ public class Fragment_01_General extends BaseNewsFragment {
     // 뷰가 소멸될 때(onDestroyView) 바인딩을 해제해야 합니다.
     // 이 과정은 Fragment의 라이프사이클과 관련이 있으며, 메모리 누수를 방지하기 위해 필요합니다.
 
-    private Fragment01GeneralBinding binding;
+    private BaseFragmentLayoutBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // 바인딩 객체를 초기화. inflate 메소드 사용
-        binding = Fragment01GeneralBinding.inflate(inflater, container, false);
-
+        binding = BaseFragmentLayoutBinding.inflate(inflater, container, false);
+        binding.tvNewsflash.setText(R.string.General_Newsflash);
+        binding.tvRank.setText(R.string.General_Rank);
         setupRecyclerViews();
 
         return binding.getRoot();
