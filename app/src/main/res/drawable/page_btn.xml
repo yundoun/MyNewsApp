@@ -4,7 +4,7 @@
     <item android:state_selected="true">
         <shape android:shape="rectangle">
             <solid android:color="@android:color/transparent"/>
-            <stroke android:width="1dp" android:color="@color/light_green"/> <!-- 초록색 테두리 -->
+            <stroke android:width="1dp" android:color="@color/smooth_green"/> <!-- 초록색 테두리 -->
         </shape>
     </item>
     <!-- 기본 배경 -->
