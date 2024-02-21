@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_newsflash"
+            android:id="@+id/rvNewsflash"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:overScrollMode="never"
@@ -65,7 +65,7 @@
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_rank"
+            android:id="@+id/rvRank"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

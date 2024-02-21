@@ -17,10 +17,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseNewsFragment extends Fragment {
-
     private List<Button> pageButtonsFirst = new ArrayList<>(); // 페이지 버튼 리스트
     private List<Button> pageButtonsSecond = new ArrayList<>(); // 페이지 버튼 리스트
     protected int currentPageNumber = 1;
+
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        addPageButtons(view, R.id.page_btn_first, pageButtonsFirst); // 버튼을 추가하는 메소드 호출
+        addPageButtons(view, R.id.page_btn_second, pageButtonsSecond);
+    }
 
     // 각 버튼 클릭 시, 적절한 동작을 정의합니다 (다음 페이지 그룹 로딩 또는 특정 페이지 데이터 로딩).
     protected void updatePageSelection(int pageNumber, List<Button> pageButtons) {
@@ -91,26 +100,10 @@ public abstract class BaseNewsFragment extends Fragment {
         buttonsLayout.addView(nextButton);
         updatePageSelection(1, pageButtons); // 초기 선택 상태를 1로 설정
     }
-
     protected int dpToPx(int dp) {
         float density = getResources().getDisplayMetrics().density;
         return Math.round(dp * density);
     }
-
-    ;
-
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // 각 프래그먼트의 레이아웃은 상속받는 프래그먼트에서 정의합니다.
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        addPageButtons(view, R.id.page_btn_first, pageButtonsFirst); // 버튼을 추가하는 메소드 호출
-        addPageButtons(view, R.id.page_btn_second, pageButtonsSecond);
-    }
-
 
     protected abstract void loadPageData(int page);
 

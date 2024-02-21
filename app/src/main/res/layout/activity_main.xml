@@ -2,14 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_layout"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/titlebar_layout"
+        android:id="@+id/titlebarLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/title_bar"
@@ -110,7 +110,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/search_layout"
+        android:id="@+id/searchLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
@@ -120,7 +120,7 @@
         tools:ignore="UnknownId">
 
         <ImageView
-            android:id="@+id/btn_input_delete"
+            android:id="@+id/btnDelete"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/ic_search_delete"
@@ -139,7 +139,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/search_icon"
+            android:id="@+id/searchIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@android:drawable/ic_search_category_default"
@@ -150,7 +150,7 @@
 
 
     <View
-        android:id="@+id/view_line"
+        android:id="@+id/viewLine"
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:background="@color/green"
@@ -163,7 +163,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/tab_layout"
-        app:layout_constraintTop_toBottomOf="@+id/view_line"
+        app:layout_constraintTop_toBottomOf="@+id/viewLine"
         tools:layout_editor_absoluteX="0dp">
 
         <com.google.android.material.tabs.TabItem
