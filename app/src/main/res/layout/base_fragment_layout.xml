@@ -83,7 +83,7 @@
             android:layout_gravity="bottom"
             android:src="@drawable/ic_news_info" />
 
-
     </LinearLayout>
+
 
 </androidx.core.widget.NestedScrollView>

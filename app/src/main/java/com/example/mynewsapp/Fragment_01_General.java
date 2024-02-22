@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -32,6 +33,7 @@ public class Fragment_01_General extends BaseNewsFragment implements DetailInter
         binding.tvRank.setText(R.string.General_Rank);
         setupRecyclerViews();
 
+        Log.d("DetailFragment", "onCreateView called");
         return binding.getRoot();
     }
 
@@ -73,20 +75,21 @@ public class Fragment_01_General extends BaseNewsFragment implements DetailInter
 
     @Override
     public void onItemClick(int position) {
-        // DetailFragment의 인스턴스를 생성합니다.
-        DetailFragment detailFragment = new DetailFragment();
+        Log.d("FragmentTransition", "Item clicked: " + position);
+        // 현재 프래그먼트 매니저에서 DetailFragment 찾기
+        DetailFragment existingFragment = (DetailFragment) getParentFragmentManager().findFragmentByTag("DETAIL_FRAGMENT");
 
-        // FragmentManager를 사용하여 FragmentTransaction을 시작합니다.
-        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack so the user can navigate back
-        transaction.replace(R.id.fragment_container, detailFragment); // 'fragment_container'는 교체될 뷰의 ID입니다.
-
-        // 이전 상태로 돌아갈 수 있도록 트랜잭션을 백스택에 추가합니다.
-        transaction.addToBackStack(null);
-
-        // 트랜잭션을 커밋하여 변경사항을 적용합니다.
-        transaction.commit();
+        // DetailFragment가 이미 추가되어 있지 않은 경우에만 추가
+        if (existingFragment == null) {
+            DetailFragment newFragment = new DetailFragment();
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, newFragment, "DETAIL_FRAGMENT");
+            transaction.addToBackStack(null); // 뒤로가기 스택에 추가
+            transaction.commit();
+        }
+    }
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null; // 바인딩 해제
     }
 }

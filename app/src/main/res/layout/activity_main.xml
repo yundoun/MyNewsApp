@@ -9,7 +9,6 @@
     tools:context=".MainActivity">
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/titlebarLayout"
         android:layout_width="match_parent"
@@ -90,10 +89,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/login_btn"
-            android:text="@string/Main_loginBtn"
             android:drawableEnd="@drawable/login_btn_image"
             android:drawablePadding="-4dp"
             android:paddingEnd="10dp"
+            android:text="@string/Main_loginBtn"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -210,7 +209,9 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tabMain"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
