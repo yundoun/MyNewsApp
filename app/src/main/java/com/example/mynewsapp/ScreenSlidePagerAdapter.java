@@ -29,7 +29,11 @@ public class ScreenSlidePagerAdapter extends FragmentStateAdapter {
             default:
                 return null; // 이 경우가 발생하지 않도록 주의
         }
+
+
     }
+
+
 
     @Override
     public int getItemCount() {

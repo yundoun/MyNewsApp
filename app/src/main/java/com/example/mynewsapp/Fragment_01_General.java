@@ -81,10 +81,8 @@ public class Fragment_01_General extends BaseNewsFragment implements DetailInter
 
         // DetailFragment가 이미 추가되어 있지 않은 경우에만 추가
         if (existingFragment == null) {
-            DetailFragment newFragment = new DetailFragment();
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container, newFragment, "DETAIL_FRAGMENT");
-            transaction.addToBackStack(null); // 뒤로가기 스택에 추가
+            transaction.replace(R.id.fragment_container,  new DetailFragment(), "DETAIL_FRAGMENT");
             transaction.commit();
         }
     }
