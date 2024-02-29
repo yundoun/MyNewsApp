@@ -51,9 +51,4 @@ Glide 라이브러리를 사용해서 네트워크 이미지를 로드해보았�
 
 ### 결과
 
-<img src="https://github.com/yundoun/NamuNews/assets/106233376/a3f55721-96d8-4ba7-af21-d77b4fac8ecf" width="400" height="700"/>
-
-<img src="https://github.com/yundoun/NamuNews/assets/106233376/d1780679-0a60-40b5-ad1c-e145ee6cedcc" width="400" height="700"/>
-
-
-
+<img src="image/news_1.jpg" width="400" height="800"/><img src="image/news_2.jpg" width="400" height="800"/>
